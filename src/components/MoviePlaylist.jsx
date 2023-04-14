@@ -4,12 +4,14 @@ function MoviePlaylist() {
   // To Do:
   // Get list of movies
   const moviePlaylist = [];
+  console.log(moviePlaylist);
 
   const handleMovieAdd = (movie) => {
     // To Do:
     // Add movie to list of movies
   };
   const handleMovieRemove = (movie) => {
+    // console.log(movie);
     // To Do:
     // Remove movie from list of movies
   };
