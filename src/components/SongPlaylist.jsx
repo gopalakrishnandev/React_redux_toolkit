@@ -1,19 +1,22 @@
 import { createRandomSong } from "../data";
-import { useDispatch } from "react-redux";
-import { addSong } from "../redux-toolkit/songActionReducer";
+//useDispatch for updating state
+import { useDispatch, useSelector } from "react-redux";
+//action for type
+import { addSong, removeSong } from "../redux-toolkit/songActionReducer";
 
 function SongPlaylist() {
   const dispatch = useDispatch();
 
   // To Do:
   // Get list of songs
-  const songPlaylist = [];
+  const songPlaylist = useSelector((state) => {
+    // console.log(state);
+    return state.song;
+  });
 
   const handleSongAdd = (song) => {
     //new way dispatch
-    const action = addSong(song);
-    dispatch(action);
-    console.log(action);
+    dispatch(addSong(song));
 
     //old way dispatching
     // dispatch({
@@ -25,6 +28,7 @@ function SongPlaylist() {
     // Add song to list of songs
   };
   const handleSongRemove = (song) => {
+    dispatch(removeSong(song));
     // To Do:
     // Remove song from list of songs
   };
